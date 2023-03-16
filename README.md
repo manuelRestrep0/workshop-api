@@ -2,7 +2,7 @@ El microservicion recibe un objeto con esta forma:
 
     {
 
-        "path":"*ruta-del-archivo*"
+        "path":"*ruta-del-archivo*.*extension-del-archivo*"
   
     }
 
