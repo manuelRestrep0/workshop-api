@@ -28,13 +28,13 @@ public class ValidationCsv implements Validation {
 
         return false;
     }
-    public static boolean validarEmail(String email){
+    public boolean validarEmail(String email){
         //Se recibe el email en tipo String y, por medio de una expresion regular se verifica que sea un correo valido.
         Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         return matcher.find();
     }
-    public static boolean validarFecha(String date){
+    public boolean validarFecha(String date){
         //Se recibe la fecha en un String, se convierte a una variable de tipo
         //LocalDate y se compara con la fecha del String fechaAComparar.
         //Se retorna un boolean
@@ -47,7 +47,7 @@ public class ValidationCsv implements Validation {
         }
         return false;
     }
-    public static boolean validarTrabajo(String job){
+    public boolean validarTrabajo(String job){
         //Se recibe un String con el trabajo, si este trabajo esta en la lista
         //de jobs entonces se retorna true, de lo contrario se retorna false.
         List<String> jobs = new ArrayList<>(Arrays.asList("Haematologist","Phytotherapist","Building surveyor","Insurance account manager","Educational psychologist"));

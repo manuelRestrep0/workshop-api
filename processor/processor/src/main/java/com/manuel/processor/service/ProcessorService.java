@@ -1,23 +1,25 @@
 package com.manuel.processor.service;
 
+import com.manuel.processor.file.ArchivoMetodos;
+import com.manuel.processor.factory.FactoryLectura;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class ProcessorService {
+    Map<String,ArchivoMetodos> map = new HashMap<>();
 
     public ProcessorService() {
     }
-
     public String leerArchivo(String path){
-        //Se recibe la direccion del archivo, se llama el metodo de lectura, luego de esto
-        //Se convierten los resultados en un String para retornarlo al Controller.
-        //Se reinician los valores de las lineas validas y no validas y se retorna el String resultado.
-        FileReader.lectura(path);
-        String resultado = "Lineas validas: "+FileReader.getLineasValidas()+".  Lineas no validas: "+FileReader.getLineasNoValidas();
-        FileReader.setLineasValidas(0);
-        FileReader.setLineasNoValidas(0);
+        //Se recibe la direccion del archivo y se retorna el resultado en un string
+        FactoryLectura leerArchivo = new FactoryLectura();
+        ArchivoMetodos file;
+        file = leerArchivo.obtenerLectura(path);
+        file.lectura(path);
+        String resultado = file.toString();
         return resultado;
     }
 

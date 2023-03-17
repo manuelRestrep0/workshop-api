@@ -1,6 +1,5 @@
 package com.manuel.processor.controller;
 
-import com.manuel.processor.service.FileReader;
 import com.manuel.processor.service.ProcessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +16,9 @@ public class ProcessorController {
     }
 
     @PostMapping("/archivo")
-    public String recibirArchivo(@RequestBody FileReader file){
+    public String recibirArchivo(@RequestBody String path){
         //Recibe un objecto tipo FileReader que contiene una variable llamada
         //Path de tipo String y ahi debe estar la ruta del archivo a trabajar.
-        return this.processorService.leerArchivo(file.getPath());
+        return this.processorService.leerArchivo(path);
     }
 }

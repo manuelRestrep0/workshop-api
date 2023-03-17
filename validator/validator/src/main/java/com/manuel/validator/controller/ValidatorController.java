@@ -20,6 +20,5 @@ public class ValidatorController {
     @PostMapping("/validar")
     public boolean validarLinea(@RequestBody String linea){
         return this.validatorService.validar(linea);
-
     }
 }
